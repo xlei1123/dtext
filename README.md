@@ -17,8 +17,6 @@ npm i defaultText -S
 const firstProxy2Default = new Proxy2Default('暂无', { includes: ['0'] })
 ```
 
-另外你还可以通过正则的方式来替换为默认值
-
 
 
 
