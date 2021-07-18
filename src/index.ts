@@ -8,7 +8,10 @@ export default class Proxy2Default {
   public excludes;
   constructor(
     defaultText: string | (() => string),
-    options?: { includes?: (string|number)[], excludes?: (string|number)[]},
+    options?: { 
+      includes?: (string|number)[], 
+      excludes?: (string|number)[],
+    },
   ) {
     if (typeof defaultText === 'string') {
       this.defaultText = defaultText;
@@ -68,6 +71,5 @@ export const proxyObj = new Proxy2Default('').proxyObj;
 
 
 // example
-
-// const firstProxy2Default = new Proxy2Deault('暂无', { includes: ['0'] })
+// const firstProxy2Default = new Proxy2Default('暂无', { includes: ['0'] })
 // export default firstProxy2Default;
