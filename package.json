@@ -2,7 +2,8 @@
   "name": "defaulttext",
   "version": "0.0.1",
   "description": "方便的给对象，字符串或者数字一个默认值",
-  "main": "lib/index.js",
+  "browser": "lib/index.js",
+  "main": "lib/index.common.js",
   "dependencies": {
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript": "^1.0.1",
