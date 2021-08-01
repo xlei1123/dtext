@@ -17,6 +17,11 @@ export default {
       format: "es",
       file: "lib/index.js",
       sourcemap: true
+    },
+    {
+      format: "commonjs",
+      file: "lib/index.common.js",
+      sourcemap: true
     }
   ]
 };

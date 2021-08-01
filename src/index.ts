@@ -3,7 +3,7 @@
  */
 
 export default class Proxy2Default {
-  public defaultText = '暂无';
+  public defaultText;
   public includes;
   public excludes;
   constructor(
@@ -23,14 +23,14 @@ export default class Proxy2Default {
   }
   proxyObj(
     obj: any, 
-    key?: string, 
     options?: { 
+      key?: string, 
       defaultText?: string|(() => string), 
       includes?: (string|number)[],
       excludes?: (string|number)[],
     }
   ){
-    let _defaultText = '';
+    let _defaultText;
     const _includes = options?.includes || this.includes;
     const _excludes = options?.excludes || this.excludes;
     if (typeof options?.defaultText === 'function') {
@@ -53,7 +53,8 @@ export default class Proxy2Default {
     } else {
       // 对象取key
       // key 不存在直接给obj返回
-      if (!key) return {...obj};
+      const _key = options.key;
+      if (!_key) return {...obj};
       const _proxyObj = new Proxy({...obj}, {
         get: (obj, prop) => {
           if (_excludes?.includes(obj[prop])) return obj[prop];
@@ -62,13 +63,12 @@ export default class Proxy2Default {
           return obj[prop];
         }
       });
-      return _proxyObj[key];
+      return _proxyObj[_key];
     }
   }
 }
-export const proxyObj = new Proxy2Default('').proxyObj;
-
-
+const newProxy2Default = new Proxy2Default('暂无')
+export const proxyObj = newProxy2Default.proxyObj.bind(newProxy2Default);
 
 // example
 // const firstProxy2Default = new Proxy2Default('暂无', { includes: ['0'] })

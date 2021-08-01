@@ -9,9 +9,12 @@
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
   "scripts": {
-    "build": "rollup -wc rollup.config.js"
+    "build": "rollup -wc rollup.config.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
