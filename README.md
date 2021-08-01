@@ -15,9 +15,11 @@ firstProxy2Default.proxyObj(undefined);  //'暂无'
 有时候你可能需要一些比较特殊的处理规则，比如你哪些特殊的值需要处理成为默认值通过includes，哪些特殊的值0， false不需要处理为默认值通过excludes
 
 ```js
-const firstProxy2Default = new Proxy2Default('暂无', { includes: ['0'] });
-firstProxy2Default.proxyObj({msg: '', id: 5, value: '0'}, 'msg'); // '暂无'
-firstProxy2Default.proxyObj({msg: '', id: 5, value: '0'}, 'value'); // '暂无'
+const firstProxy2Default = new Proxy2Default('暂无', { includes: ['0'], excludes: [0] });
+firstProxy2Default.proxyObj({msg: '', id: 0, value: '0'}, {key: 'id'}); // 0
+firstProxy2Default.proxyObj({msg: '', id: 0, value: '0'}, {key: 'msg'}); // '暂无'
+firstProxy2Default.proxyObj({msg: '', id: 0, value: '0'}, {key: 'value'}); // '暂无'
+
 ```
 Proxy2Default参数说明
 
@@ -35,9 +37,9 @@ options的参数说明
 proxyObj中参数说明
 ```js
 proxyObj(
-  obj: any, 
-  key?: string, 
+  obj: any,
   options?: { 
+    key?: string, 
     defaultText?: string|(() => string), 
     includes?: (string|number)[],
     excludes?: (string|number)[],
