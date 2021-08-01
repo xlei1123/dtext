@@ -1,5 +1,5 @@
 {
-  "name": "defaulttext",
+  "name": "dtext",
   "version": "0.0.1",
   "description": "方便的给对象，字符串或者数字一个默认值",
   "browser": "lib/index.js",
