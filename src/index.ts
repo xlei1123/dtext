@@ -49,6 +49,8 @@ export default class Proxy2Default {
         return _defaultText;
       }
       if (!obj) return _defaultText;
+      // warning
+      console.warn('为找到你的key')
       return obj;
     } else {
       // 对象取key
