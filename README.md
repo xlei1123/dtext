@@ -9,17 +9,19 @@ npm i dtext -S
 ```
 
 ```js
-const firstProxy2Default = new Proxy2Default('暂无'});
-firstProxy2Default.proxyObj(undefined);  //'暂无'
+import Proxy2Default from 'dtext';
+const proxy2Default = new Proxy2Default('暂无'});
+proxy2Default.proxyObj(undefined);  //'暂无'
 ```
 
 有时候你可能需要一些比较特殊的处理规则，比如你哪些特殊的值需要处理成为默认值通过includes，哪些特殊的值0， false不需要处理为默认值通过excludes
 
 ```js
-const firstProxy2Default = new Proxy2Default('暂无', { includes: ['0'], excludes: [0] });
-firstProxy2Default.proxyObj({msg: '', id: 0, value: '0'}, {key: 'id'}); // 0
-firstProxy2Default.proxyObj({msg: '', id: 0, value: '0'}, {key: 'msg'}); // '暂无'
-firstProxy2Default.proxyObj({msg: '', id: 0, value: '0'}, {key: 'value'}); // '暂无'
+const proxy2Default = new Proxy2Default('暂无', { includes: ['0'], excludes: [0] });
+const obj = {msg: '', id: 0, value: '0'};
+proxy2Default.proxyObj(obj, {key: 'id'}); // 0 excludes: [0]
+proxy2Default.proxyObj(obj, {key: 'msg'}); // '暂无'
+proxy2Default.proxyObj(obj, {key: 'value'}); // '暂无' includes: ['0']
 
 ```
 Proxy2Default参数说明
