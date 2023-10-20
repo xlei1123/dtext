@@ -4,9 +4,12 @@ const Proxy2Default = require('../lib/index.common').default;
 const { proxyObj } = require('../lib/index.common');
 
 
-// undefined 展示暂无
+// 默认布尔计算为false的返回暂无
 const firstProxy2Default = new Proxy2Default('暂无');
+
+// 测试this指向问题
 const proxyObj2 = firstProxy2Default.proxyObj;
+// undefined 展示暂无
 test('undefined show 暂无', () => {
   expect(firstProxy2Default.proxyObj(undefined)).toBe('暂无');
 });
