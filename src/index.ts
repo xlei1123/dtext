@@ -20,6 +20,7 @@ export default class Proxy2Default {
     }
     this.includes = options?.includes;
     this.excludes = options?.excludes;
+    this.proxyObj = this.proxyObj.bind(this);
   }
   proxyObj(
     obj: any, 
@@ -55,7 +56,7 @@ export default class Proxy2Default {
     } else {
       // 对象取key
       // key 不存在直接给obj返回
-      const _key = options.key;
+      const _key = options?.key;
       if (!_key) return {...obj};
       const _proxyObj = new Proxy({...obj}, {
         get: (obj, prop) => {
@@ -69,6 +70,7 @@ export default class Proxy2Default {
     }
   }
 }
+
 const newProxy2Default = new Proxy2Default('暂无')
 export const proxyObj = newProxy2Default.proxyObj.bind(newProxy2Default);
 

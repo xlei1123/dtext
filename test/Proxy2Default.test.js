@@ -6,8 +6,13 @@ const { proxyObj } = require('../lib/index.common');
 
 // undefined 展示暂无
 const firstProxy2Default = new Proxy2Default('暂无');
+const proxyObj2 = firstProxy2Default.proxyObj;
 test('undefined show 暂无', () => {
   expect(firstProxy2Default.proxyObj(undefined)).toBe('暂无');
+});
+
+test('undefined show 暂无', () => {
+  expect(proxyObj2(undefined)).toBe('暂无');
 });
 
 
