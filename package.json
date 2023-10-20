@@ -1,6 +1,6 @@
 {
   "name": "dtext",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "方便的给对象，字符串或者数字一个默认值",
   "browser": "lib/index.js",
   "main": "lib/index.common.js",
