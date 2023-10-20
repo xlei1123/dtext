@@ -1,7 +1,6 @@
 /**
  * 取默认值 多级key
  */
-
 export default class Proxy2Default {
   public defaultText;
   public includes;
